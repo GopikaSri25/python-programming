@@ -1,0 +1,18 @@
+class Solution(object):
+    def findTarget(self, root, k):
+        stuck = [root]
+        dic = {}
+
+        while stuck:
+            node = stuck.pop()
+
+            if node.val in dic:
+                return True
+            dic[k - node.val] = node.val
+
+            if node.left:
+                stuck.append(node.left)
+            
+            if node.right:
+                stuck.append(node.right)
+        return False
