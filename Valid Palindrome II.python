@@ -1,0 +1,25 @@
+class Solution(object):
+    def validPalindrome(self, s):
+
+        def palindrome(string,left,right):
+            while left<right:
+                if string[left]!=string[right]:
+                    return False
+                left=left+1
+                right=right-1
+            return True
+        if len(s)<3:
+           return True
+        left=0
+        right=len(s)-1
+        
+        while left<right :
+      
+            if s[left]!=s[right]:
+                return palindrome(s,left+1,right) or palindrome(s,left,right-1)
+
+            left=left+1
+
+            right=right-1
+
+        return True
