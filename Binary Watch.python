@@ -1,0 +1,44 @@
+class Solution(object):
+    def readBinaryWatch(self, turnedOn):
+        """
+        :type turnedOn: int
+        :rtype: List[str]
+        """
+        def isValid(list_2d):
+            if not 0 <= list_2d[0] <= 11:
+                return False
+            if not 0 <= list_2d[1] <= 59:
+                return False
+            return True
+
+        def convert(list_2d):
+            return str(list_2d[0])+ ":" + str(list_2d[1]).zfill(2)
+        def backtracking(search_space, added, sol, on_left):
+            if on_left == 0 and convert(added) not in sol:
+                sol.append(convert(added))
+                return
+            for i in range(len(search_space[0])):
+                h = search_space[0][i]
+                if isValid([added[0] + h, added[1]]):
+                    backtracking(
+                        [search_space[0][i + 1:], search_space[1]], 
+                        [added[0] + h, added[1]], 
+                        sol,
+                        on_left - 1
+                        )
+            for i in range(len(search_space[1])):
+                m = search_space[1][i]
+                if isValid([added[0], added[1] + m]):
+                    backtracking(
+                        [search_space[0], search_space[1][i + 1:]], 
+                        [added[0], added[1] + m], 
+                        sol,
+                        on_left - 1
+                        )
+
+        h = [8, 4, 2, 1]
+        m = [32, 16, 8, 4, 2, 1]
+        sol = []
+        backtracking([h,m], [0,0], sol, turnedOn)
+
+        return sol
