@@ -1,0 +1,20 @@
+class Solution(object):
+    def calPoints(self, operations):
+        """
+        :type operations: List[str]
+        :rtype: int
+        """
+
+        a=[]
+        for i in operations:
+            if i.isnumeric():
+                a.append(int(i))
+            elif i=="C":
+                a.pop()
+            elif i=="D":
+                a.append(a[-1]*2)
+            elif i=="+":
+                a.append(a[-1]+a[-2])
+            elif i[0]=="-":
+                a.append(int(i))
+        return sum(a)
