@@ -1,0 +1,22 @@
+class Solution(object):
+  
+    def search(self,nums, target):
+        count=len(nums)
+        mid=count//2
+        if(target==nums[mid]):
+            return mid
+        elif(target<nums[mid]):
+            i=0
+            while i<count//2:
+                mid-=1
+                if(target==nums[mid]):
+                    return mid
+                i+=1
+            return -1
+        x=0
+        for i in nums:
+            if(target>=i):
+                if(target==i):
+                    return x
+                x+=1
+        return -1
