@@ -1,0 +1,20 @@
+class Solution(object):
+    def check(self,target):
+        temp = target
+        while temp>0:
+            b = temp%10
+            if b==0 or target%b!=0:
+                return -1
+            temp//=10
+        return 1
+    def selfDividingNumbers(self, left, right):
+        a=[]
+        for i in range(left,right+1):
+            if i<10:
+                a.append(i)
+            else:
+                b = self.check(i)
+                if b == 1:
+                    a.append(i)
+        
+        return a
