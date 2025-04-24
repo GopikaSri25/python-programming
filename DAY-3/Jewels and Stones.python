@@ -1,0 +1,9 @@
+class Solution(object):
+    def numJewelsInStones(self, jewels, stones):
+        sort_jewels = set(jewels)
+        count = 0
+        for i in stones:
+            if i in sort_jewels:
+                count += 1
+        return count
+        
