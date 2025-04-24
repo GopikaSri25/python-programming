@@ -1,0 +1,14 @@
+class Solution(object):
+    def minCostClimbingStairs(self, cost):
+        n = len(cost) 
+        if n < 2:
+            return cost[i]
+        soln = [0]*n 
+        soln[0] = cost[0]
+        soln[1] = cost[1]
+        for i in range(2,len(cost)):
+            soln[i] = min(soln[i-2],soln[i-1])+cost[i]
+        return min(soln[-1],soln[-2]) 
+
+
+        
