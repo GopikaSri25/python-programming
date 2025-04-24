@@ -1,0 +1,20 @@
+class Solution(object):
+    def dfs(self,matrix,n,m,sr,sc,color,ini,a1,b1):
+        matrix[sr][sc]=color
+        for i in range(4):
+            nrow=sr+a1[i]
+            ncol=sc+b1[i]
+            if nrow>=0 and nrow<n and ncol>=0 and ncol<m and matrix[nrow][ncol]==ini and matrix[nrow][ncol]!=color:
+                self.dfs(matrix,n,m,nrow,ncol,color,ini,a1,b1)
+
+
+    def floodFill(self, image, sr, sc, color):
+        matrix=image
+        ini=matrix[sr][sc]
+        n=len(image)
+        m=len(image[0])
+        a1=[0,0,1,-1]
+        b1=[-1,1,0,0]
+        self.dfs(matrix,n,m,sr,sc,color,ini,a1,b1)
+        return matrix
+        
