@@ -1,0 +1,38 @@
+class Solution(object):
+    def countPrimeSetBits(self, left, right):
+        binary_list = []
+        def binary(num):
+            if num == 0:
+                return "0" 
+            bins = ""
+            while num >0 :
+                reminder = num%2 
+                bins = str(reminder)+ bins
+                num //= 2
+            return bins
+        def prime(num):
+            t1= {}
+            if num <=1:
+                t1[num] = 0
+                return t1
+            for i in range(2, int(num**0.5)+1):
+                if num%i == 0 :
+                    t1[num] = 0 
+                    return t1
+            t1[num] = 1
+            return t1
+        for i in range(left, right+1):
+            b = binary(i)
+            binary_list.append(b)
+        one_num = {}
+        for i in binary_list:
+            one_num[i] = 0 
+            for j in i :
+                if j == "1":
+                    one_num[i] += 1
+        total = 0
+        for i in one_num.values():
+            p = prime(i)
+            v = (p.values())[0]
+            total += v
+        return total
