@@ -1,0 +1,15 @@
+class Solution(object):
+    def shortestCompletingWord(self, licensePlate, words):
+        t = "".join([i for i in licensePlate if "a"<=i.lower()<= "z"  ]).lower()
+        result = None
+        st = set(t)
+        for word in words :
+            state = True
+            for char in st :
+                if word.count(char) < t.count(char):
+                    state = False
+                    break 
+            if state :
+                if result == None or len(word)< len(result):
+                    result = word
+        return result
