@@ -1,0 +1,29 @@
+
+class Solution(object):
+
+    def minDiffInBST(self, root):
+        """
+        :type root: Optional[TreeNode]
+        :rtype: int
+        """
+        sorted_list = []
+        def builder(node):
+            if not node:
+                return
+            builder(node.left)
+            sorted_list.append(node.val)
+            builder(node.right)
+
+        builder(root)
+        min_result = float('inf')
+        for i in range(1, len(sorted_list)):
+            curr = sorted_list[i] - sorted_list[i-1]
+            if curr < min_result:
+                min_result = curr
+        return min_result
+
+
+        
+
+
+        
