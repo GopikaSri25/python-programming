@@ -1,0 +1,10 @@
+class Solution(object):
+    def fairCandySwap(self, aliceSizes, bobSizes):
+        suma = sum(aliceSizes)
+        sumb = sum(bobSizes)
+
+        diff = (suma - sumb)// 2
+        for x in aliceSizes:
+            y = x - diff 
+            if y in bobSizes:
+                return [x, y]
