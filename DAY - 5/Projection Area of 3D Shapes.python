@@ -1,0 +1,9 @@
+class Solution(object):
+    def projectionArea(self, grid):
+        xy, xz, yz = 0, 0, 0
+        for row in grid:
+            xy += len([i for i in row if i > 0])
+            xz += max(row) if row else 0
+        for col in zip(*grid):
+            yz += max(col) if col else 0
+        return xy + xz + yz
