@@ -1,0 +1,14 @@
+class Solution(object):
+    def shortestToChar(self, s, c):
+        ans = []
+        c_count = []
+        res = []
+        for x in range(len(s)):
+            if s[x] == c:
+                c_count.append(x)
+        for i in range(len(s)):
+            for check in c_count:
+                res.append(abs(check - i))
+            ans.append(abs(min(res)))
+            res[:] = []
+        return ans
