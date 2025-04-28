@@ -1,0 +1,19 @@
+class Solution(object):
+    def toGoatLatin(self, sentence):
+        """
+        :type sentence: str
+        :rtype: str
+        """
+        s = sentence.split()
+        n = len(s)
+        k = ['a','e','i','o','u','A','E','I','O','U']
+        z = []
+        for i in range(n):
+            if s[i][0] in k:
+                h = s[i] + 'ma' + (i+1) * 'a'
+                z.append(h)
+            else:
+                h = s[i][1:] + s[i][0] + 'ma' + (i+1) * 'a'
+                z.append(h)
+        return str(' '.join(z))
+        
