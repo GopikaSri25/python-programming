@@ -1,0 +1,24 @@
+def is_alpha(char):
+    if (ord(char)>=ord("a") and ord(char)<=ord("z")) or (ord(char)>=ord("A") and ord(char)<=ord("Z")):
+                if (ord(char)>=ord("a") and ord(char)<=ord("z")) or (ord(char)>=ord("A") and ord(char)<=ord("Z")):
+                    return True
+    return False
+
+
+class Solution(object):
+    def reverseOnlyLetters(self, s):
+        s_list=list(s)
+        i=0
+        j=len(s)-1
+        while i<j:
+            if s[i].isalpha():
+                if s[j].isalpha(): 
+                    s_list[i],s_list[j] = s_list[j],s_list[i]
+                    i+=1
+                    j-=1
+                else:
+                    j-=1
+            else:
+                i+=1
+        return ''.join(map(str,s_list))
+        
