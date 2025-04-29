@@ -1,0 +1,16 @@
+class Solution(object):
+    def isAlienSorted(self, words, order):
+        order_map = {c:index for index, c in enumerate(order)}
+        def is_sorted(word1, word2):
+            min_len = min(len(word1), len(word2))
+            for i in range(min_len):
+                if order_map[word1[i]] < order_map[word2[i]]:
+                    return True  
+                elif  order_map[word1[i]] >  order_map[word2[i]]:
+                    return False 
+            return len(word1) <= len(word2)
+        for i in range(len(words)-1):
+            if not is_sorted(words[i], words[i+1]):
+                return False
+        return True
+                
