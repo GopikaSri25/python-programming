@@ -1,0 +1,5 @@
+class Solution(object):
+    def smallestRangeI(self, nums, k):
+        minv = min(nums)
+        maxv = max(nums)
+        return max(0, maxv-minv-2*k)
