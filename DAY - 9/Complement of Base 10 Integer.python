@@ -1,0 +1,20 @@
+class Solution(object):
+    def bitwiseComplement(self, n):
+        if n == 0:
+            return 1
+        bin_arr = []
+        bin_arr1 = []
+        while n>0:
+            rem = n%2
+            bin_arr.append(rem)
+            n//=2
+            rem = 0
+
+        for i in bin_arr:
+            if i==1:
+                bin_arr1.append(0)
+            elif i == 0:
+                bin_arr1.append(1)
+        bin_arr1.reverse()
+        dec = int(''.join(map(str,bin_arr1)),2)
+        return dec
