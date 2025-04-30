@@ -1,0 +1,15 @@
+class Solution(object):
+    def isUnivalTree(self, root):
+        cur,stack=root,[]
+        res=[]
+        while cur or stack:
+            if cur:
+                res.append(cur.val)
+                stack.append(cur.right)
+                cur=cur.left
+            else:
+                cur=stack.pop()
+        if(len(set(res))==1):
+            return True
+        else:
+            return False
