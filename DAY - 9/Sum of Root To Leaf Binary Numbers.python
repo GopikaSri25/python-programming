@@ -1,0 +1,23 @@
+class Solution(object):   
+    def sumRootToLeaf(self, root):
+        """
+        :type root: TreeNode
+        :rtype: int
+        """
+        def callLeaf(tree_node, value):
+            sum = 0
+            current_val = value*2 + tree_node.val
+            if tree_node.left is not None:
+                sum += callLeaf(tree_node.left, current_val)
+
+
+            if tree_node.right is not None:
+                sum += callLeaf(tree_node.right, current_val)
+
+            
+            if tree_node.left is None and tree_node.right is None:
+                sum += current_val
+            return sum
+
+        return callLeaf(root, 0)
+        
