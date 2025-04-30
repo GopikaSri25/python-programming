@@ -1,0 +1,11 @@
+class Solution(object):
+    def prefixesDivBy5(self, nums):
+        res = []
+        num = 0
+        for i in nums:
+            num = num * 2 + i
+            if num % 5 == 0:
+                res.append(True)
+            else:
+                res.append(False)
+        return res
