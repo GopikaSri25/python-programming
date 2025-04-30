@@ -1,0 +1,17 @@
+class Solution(object):
+    def addToArrayForm(self, num, k):
+        """
+        :type num: List[int]
+        :type k: int
+        :rtype: List[int]
+        """
+        s1=""
+        for i in num:
+            o=str(i)
+            s1=s1+o
+        s1=int(s1)+k
+        s1=str(s1)
+        s=[]
+        for i in s1:
+            s.append(int(i))
+        return s
