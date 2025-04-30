@@ -1,0 +1,18 @@
+class Solution(object):
+    def findJudge(self, n, trust):
+        if not trust and n == 1: return 1
+
+        has_no_children = set([_ for _ in range(1, n+1)])
+        for a, b in trust:
+            if a in has_no_children: has_no_children.remove(a)
+        
+        table = {}
+        for a, b in trust:
+            if b in has_no_children:
+                table[b] = 1 + table.get(b, 0)
+        
+        for person in table:
+            if table[person] == n-1:
+                return person
+        
+        return -1
