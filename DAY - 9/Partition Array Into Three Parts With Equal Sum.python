@@ -1,0 +1,16 @@
+class Solution(object):
+    def canThreePartsEqualSum(self, arr):
+        c = 0 
+        n = 0
+        
+        target = sum(arr)//3
+        if sum(arr) %3 != 0 :
+            return False 
+        for i in range(len(arr)):
+            n += arr[i]
+            if n == target :
+                c += 1
+                n = 0
+            if c == 3 :
+                return True
+        return False
