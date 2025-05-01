@@ -1,0 +1,13 @@
+class Solution(object):
+    def numEquivDominoPairs(self, dominoes):
+        count = {}
+        c = 0
+        for a, b in dominoes :
+            key = tuple(sorted([a,b]))
+            if key in count:
+                count[key] += 1
+            else :
+                count[key] = 1
+        for n in count.values():
+            c += n*(n-1)//2
+        return c 
