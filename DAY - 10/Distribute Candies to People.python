@@ -1,0 +1,21 @@
+class Solution(object):
+    def distributeCandies(self, candies, num_people):
+        """
+        :type candies: int
+        :type num_people: int
+        :rtype: List[int]
+        """
+        res = [0] * num_people
+        k = 0
+        counter = 1
+
+        while candies > 0:
+            index = k % num_people
+            if counter > candies:
+                res[index] += candies
+                break
+            res[index] += counter
+            candies -= counter
+            counter += 1
+            k += 1
+        return res
