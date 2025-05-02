@@ -1,0 +1,20 @@
+class Solution(object):
+    def maxNumberOfBalloons(self, text):
+        """
+        :type text: str
+        :rtype: int
+        """
+        
+        d = {}
+        output = 0
+        d['b'] = text.count('b')
+        d['a'] = text.count('a')
+        d['l'] = text.count('l')/2
+        d['o'] = text.count('o')/2
+        d['n'] = text.count('n')
+
+        
+
+
+        return min(d.values())
+                
