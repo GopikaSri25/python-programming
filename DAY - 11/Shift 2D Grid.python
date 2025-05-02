@@ -1,0 +1,9 @@
+class Solution(object):
+    def shiftGrid(self, grid, k):
+        size = (len(grid[0]), len(grid))
+        nums = [num for line in grid for num in line]
+        ak = k % len(nums)
+        if ak == 0: return grid
+        nums = nums[-ak:] + nums[:-ak]
+        return [nums[i*size[0]:(i+1)*size[0]] for i in range(size[1])]
+        
