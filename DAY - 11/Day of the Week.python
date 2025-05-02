@@ -1,0 +1,6 @@
+class Solution(object):
+    def dayOfTheWeek(self, day, month, year):
+        import calendar
+        day=calendar.weekday(year,month,day)
+        d=calendar.day_name[day]
+        return(d)
