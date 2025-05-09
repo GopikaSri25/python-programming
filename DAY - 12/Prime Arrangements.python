@@ -1,0 +1,25 @@
+class Solution(object):
+    def numPrimeArrangements(self, n):
+        def count_primes(n):
+            if n < 2:
+                return 0
+            primes = [True] * (n + 1)
+            primes[0] = primes[1] = False
+            for i in range(2, int(n ** 0.5) + 1):
+                if primes[i]:
+                    primes[i * i: n + 1: i] = [False] * len(primes[i * i: n + 1: i])
+            return sum(primes)
+
+        def factorial(num):
+            result = 1
+            for i in range(2, num + 1):
+                result = (result * i) % (10 ** 9 + 7)
+            return result
+
+        num_primes = count_primes(n)
+        num_non_primes = n - num_primes
+
+        prime_permutations = factorial(num_primes)
+        non_prime_permutations = factorial(num_non_primes)
+
+        return (prime_permutations * non_prime_permutations) % (10 ** 9 + 7)
