@@ -1,0 +1,20 @@
+class Solution(object):
+    def countCharacters(self, words, chars):
+        total = 0 
+        for w in words :
+            d = {}
+            for c in chars :
+                if c not in d :
+                    d[c] = 1
+                else :
+                    d[c] += 1
+            temp = 0
+            for i in w :
+                if i in d and d[i]>0 :
+                    d[i] -= 1
+                    temp += 1
+                else:
+                    temp = 0
+                    break
+            total += temp
+        return total
