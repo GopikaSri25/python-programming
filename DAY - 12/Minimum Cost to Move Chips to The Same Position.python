@@ -1,0 +1,12 @@
+class Solution(object):
+    def minCostToMoveChips(self, position):
+        odd = 0 
+        even = 0 
+        for x in position: 
+            if x % 2 == 0: 
+                even += 1
+
+            if x % 2 == 1: 
+                odd += 1 
+                 
+        return min(odd,even)
