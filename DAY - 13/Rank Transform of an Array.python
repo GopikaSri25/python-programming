@@ -1,0 +1,7 @@
+class Solution(object):
+    def arrayRankTransform(self, arr):
+        hm = {}
+        sor = sorted(set(arr))
+        for i in range(len(sor)):
+            hm[sor[i]] = i+1
+        return [hm[k] for k in arr]
