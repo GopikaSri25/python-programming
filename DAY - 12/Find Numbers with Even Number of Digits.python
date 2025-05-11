@@ -1,0 +1,8 @@
+class Solution(object):
+    def findNumbers(self, nums):
+        i = 0
+        even_count = 0
+        for i in range(len(nums)):
+            if str(len(str(nums[i])))[-1] in '02468':
+                even_count += 1
+        return even_count
