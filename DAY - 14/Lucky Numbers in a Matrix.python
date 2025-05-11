@@ -1,0 +1,20 @@
+class Solution(object):
+    def luckyNumbers(self, matrix):
+        """
+        :type matrix: List[List[int]]
+        :rtype: List[int]
+        """
+        import numpy as np
+        nm_mat=np.array(matrix)
+        mins=nm_mat.min(axis=1)
+        maxs=nm_mat.max(axis=0)
+        smin=mins.tolist()
+        smax=maxs.tolist()
+        for i in nm_mat.flat:
+            if max(smin)==min(smax)==i:
+                s=np.array(i)
+                li=s.tolist()
+                return [li] 
+        else:
+            return []
+                
