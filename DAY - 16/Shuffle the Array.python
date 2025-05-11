@@ -1,0 +1,14 @@
+class Solution(object):
+    def shuffle(self, nums, n):
+
+
+        NumsTypeCastedToInt = [int(x) for x in nums]
+        final = []
+
+        numsX = NumsTypeCastedToInt[:n]
+        numsY = NumsTypeCastedToInt[n:]
+
+        for i in range(n):
+            final.append(numsX[i])
+            final.append(numsY[i])
+        return final
