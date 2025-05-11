@@ -1,0 +1,20 @@
+class Solution(object):
+    def isPathCrossing(self, path):
+        coord=[]
+        origin=[0,0]
+        coord.append(origin[:])
+        for i in path:
+            if i == 'N':
+                origin[1] += 1
+            elif i == 'S':
+                origin[1] -= 1
+            elif i == 'E':
+                origin[0] += 1
+            elif i == 'W':
+                origin[0] -= 1
+            if origin in coord:
+                return True
+            coord.append(origin[:])
+        return False
+            
+        
