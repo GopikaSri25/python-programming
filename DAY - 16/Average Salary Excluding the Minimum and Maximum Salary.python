@@ -1,0 +1,7 @@
+class Solution(object):
+    def average(self, salary):
+        salary = sorted(salary)
+        minimum = salary.pop(0)
+        maximum = salary.pop(len(salary)-1)
+
+        return float(sum(salary))/float(len(salary))
