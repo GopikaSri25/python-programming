@@ -1,0 +1,13 @@
+from collections import Counter
+class Solution(object):
+    def findLucky(self, arr):
+        """
+        :type arr: List[int]
+        :rtype: int
+        """
+        list1=Counter(arr)
+        list2=[-1]
+        for key, value in list1.items():
+            if key == value:
+                list2.append(key)
+        return(max(list2))
