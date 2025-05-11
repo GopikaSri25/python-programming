@@ -1,0 +1,24 @@
+from collections import defaultdict
+class Solution(object):
+    def countLargestGroup(self, n):
+        hashMap = defaultdict(list)
+        def convertToSum(digit):
+            c = 0
+            while digit > 0:
+                c += digit % 10
+                digit //= 10
+            return c
+
+        for i in range(1, n + 1):
+            key = convertToSum(i)
+            hashMap[key].append(i)
+        
+        maxLen = 0
+        for i in hashMap.keys():
+            maxLen = max(maxLen, len(hashMap[i]))
+        
+        ans = 0
+        for i in hashMap.keys():
+            if maxLen == len(hashMap[i]):
+                ans += 1
+        return ans
