@@ -1,0 +1,10 @@
+class Solution(object):
+    def reformatDate(self, date):
+        month_dict={"Jan":"01", "Feb":"02", "Mar":"03", "Apr":"04", "May":"05", "Jun":"06", "Jul":"07", "Aug":"08", "Sep":"09", "Oct":"10", "Nov":"11", "Dec":"12"}
+        date_list=date.split(" ")[::-1]
+        date_num=''.join([i for i in date_list[2] if i.isdigit()])
+        if len(date_num) == 1:
+            date_num = "0" + date_num
+        return date_list[0]+"-"+month_dict[date_list[1]]+"-"+date_num
+
+        
