@@ -1,0 +1,16 @@
+class Solution(object):
+    def maximum69Number (self, num):
+        l = []
+        fixx = list(str(num))
+        if num + 1 == int('1' + '0'*len(str(num))):
+            return num
+        else:
+            for enm,i in enumerate(fixx):
+                if i == '9':
+                    fixx[enm] = '6'
+                    l.append(''.join(fixx))
+                elif i == '6':
+                    fixx[enm] = '9'
+                    l.append(''.join(fixx))
+                fixx = list(str(num))  
+        return int(max(l))
