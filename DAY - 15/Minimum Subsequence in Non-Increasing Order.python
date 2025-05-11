@@ -1,0 +1,11 @@
+class Solution(object):
+    def minSubsequence(self, nums):
+        a=[]
+        nums.sort()
+        if len(set(nums))==1:
+            return nums
+        for i in range(len(nums)):
+            if sum(a)>sum(nums):
+                return a
+            a.append(nums.pop())
+        return nums
