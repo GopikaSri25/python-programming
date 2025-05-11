@@ -1,0 +1,18 @@
+class Solution(object):
+    def getNoZeroIntegers(self, n):
+
+        print(str(0) in str(5000) or str(0) in str(2000))
+        if n % 2 == 0:
+            print(n)  
+            one_half = n/2
+            two_half = n/2
+        else:
+            n -= 1 
+            one_half = n/2 + 1
+            two_half = n/2
+            
+        while "0" in str(one_half) or "0" in str(two_half):
+            one_half +=1 
+            two_half -=1
+        return [one_half, two_half]
+        
