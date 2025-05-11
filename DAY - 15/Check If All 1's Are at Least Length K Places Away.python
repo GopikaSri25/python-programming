@@ -1,0 +1,6 @@
+class Solution(object):
+    def kLengthApart(self, nums, k):
+        for i in range(0,len(nums)-1):
+            if (nums[i]==1 and nums[i] in [nums[j] for j in range(i+1, i+k+1  if i+k+1<len(nums) else len(nums))]):
+                return False
+        return True
