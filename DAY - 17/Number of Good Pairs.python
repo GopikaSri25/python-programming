@@ -1,0 +1,12 @@
+class Solution(object):
+    def numIdenticalPairs(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        dict = {}
+        count = 0
+        for n in nums:
+            count += dict.get(n, 0)
+            dict[n] = dict.get(n, 0) + 1
+        return count
