@@ -1,0 +1,10 @@
+class Solution(object):
+    def getTargetCopy(self, original, cloned, target):
+        if not cloned:
+            return None
+        if original == target:
+            return cloned
+        left = self.getTargetCopy(original.left, cloned.left, target)
+        if left:
+            return left
+        return self.getTargetCopy(original.right, cloned.right, target)
