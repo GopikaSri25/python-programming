@@ -1,0 +1,3 @@
+    def canFormArray(self, arr, pieces):
+        kv = {e[0]: e for e in pieces}
+        return arr == list(itertools.chain(*[ kv.get(e, []) for e in arr]))
