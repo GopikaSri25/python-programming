@@ -1,0 +1,6 @@
+class Solution(object):
+    def trimMean(self, arr):       
+        to_remove = int(len(arr) / 20)
+        sorted_array = sorted(arr)
+        new_arr = sorted_array[to_remove:len(arr) - to_remove]         
+        return (float(sum(new_arr)) / len(new_arr))
