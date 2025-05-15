@@ -1,0 +1,29 @@
+class Solution(object):
+    def frequencySort(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: List[int]
+        """
+        frequencyDict, numDict = {},  {}
+        ret = []
+
+        for num in nums:
+            if num in numDict:
+                numDict[num] += 1
+            else:
+                numDict[num] = 1
+
+        for key, val in numDict.items():
+            if val in frequencyDict:
+                frequencyDict[val] += [key]
+            else:
+                frequencyDict[val] = [key]
+
+        frequencyDict = sorted(frequencyDict.items())
+        for item in frequencyDict:
+            [frequency, numList] = item
+            numList.sort(reverse=True)
+            for num in numList:
+                temp = [num] * frequency
+                ret += temp
+        return ret
