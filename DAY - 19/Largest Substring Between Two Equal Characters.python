@@ -1,0 +1,19 @@
+class Solution(object):
+    def maxLengthBetweenEqualCharacters(self, s):
+        alpha =[]
+        for i in range(1,27):
+            alpha.append([sys.maxsize,-sys.maxsize])
+
+        index =0
+        for x in s:
+            if(index<=alpha[ord(x)-97][0]):
+                alpha[ord(x)-97][0] = index
+            elif(index>=alpha[ord(x)-97][1]):
+                alpha[ord(x)-97][1] = index
+            index+=1
+        res = -1
+        for x in alpha:
+            if(x[1]-x[0]>=0 and x[1]-x[0]>res):
+                res = x[1]-x[0]-1
+        return res
+
